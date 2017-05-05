@@ -1,0 +1,50 @@
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');*/
+body{
+  position: relative;
+  font-family: 'Roboto';
+}
+
+main{
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #66ffff;
+  padding: 20px;
+}
+
+.image-recipe{
+  position: relative;
+}
+
+.image-recipe>img{
+  width: 100%;
+  height: auto;
+}
+
+.image-recipe>h2{
+  color: YELLOW;
+  position: absolute;
+  text-decoration-style: solid;
+  font-size: 60px;
+  top: 45%;
+  left: 45%;
+}
+
+.description{
+  text-align: justify;
+  margin: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 30px;
+}
+
+.recipe-info>img,.cooking-info>img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ingredients, .directions{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
