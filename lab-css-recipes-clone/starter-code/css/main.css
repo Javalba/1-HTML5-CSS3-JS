@@ -1,14 +1,19 @@
-/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');*/
 body{
   position: relative;
-  font-family: 'Roboto';
+  font-family: 'Open Sans';
+  font-size: 20px;
 }
 
 main{
   width: 1200px;
   margin: 0 auto;
-  background-color: #66ffff;
   padding: 20px;
+}
+
+.container{
+  margin: 0 auto;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 .image-recipe{
@@ -21,30 +26,41 @@ main{
 }
 
 .image-recipe>h2{
-  color: YELLOW;
+  /*display: block;
+  margin-left: auto;
+  margin-right: auto;*/
+  color: WHITE;
   position: absolute;
-  text-decoration-style: solid;
   font-size: 60px;
   top: 45%;
-  left: 45%;
+  left: 39%;
+  /*text-align: center;*/
+  /*align-content: center;
+    vertical-align: middle;
+    margin-top: -25%; /* Half the height   ¿¿¿¿¿??????*/
+
 }
 
 .description{
   text-align: justify;
-  margin: 80px;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 30px;
+  letter-spacing: 1px;
+   line-height: 125%;
+  font-size: 24px;
+  /*font-weight: normal;*/
 }
 
 .recipe-info>img,.cooking-info>img{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 40%;
 }
 
 .ingredients, .directions{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.ingredients{
+  list-style-type: disc; /*Put -   ??????? */
 }
