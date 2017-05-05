@@ -1,0 +1,23 @@
+li{
+  background-color: blue
+}
+
+.red-box{
+  background-color: red;
+}
+
+body{
+  background-color: #00D1AE;
+}
+
+.div1{
+  width: 400px;
+  height: 200px;
+  background-color: #00D1AE;
+}
+
+.div2{
+  width: 100px;
+  height: 200px;
+  background-color: red;
+}

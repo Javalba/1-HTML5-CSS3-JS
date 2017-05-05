@@ -1,0 +1,93 @@
+body{
+background-color: : grey;
+}
+
+.e1 {
+  background-color: #00D1AE;
+  width: 500px;
+  border-color: #17212e;
+  border-style: dotted;
+  border-radius: 12px;
+}
+#circle{
+  background-color: #ccc;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.padding{
+  background-color: #00D1AE;
+  width: 500px;
+  text-align: center;
+  border: 30px solid red;
+  padding: 10px 20px 30px 40px;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.card{
+  background-color: #eae6e7;
+  padding-top: 10px;
+  /*position: absolute;*/
+}
+.lorem{
+  background-color: #79f0b8;
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  border: 2px solid black;
+  margin: 40px;
+  padding: 15px;
+  /*position: relative;*/
+}
+.lorem-text{
+  background-color: #24ccd9;
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.box {
+  border: 2px solid;
+  font-family: Arial;
+  font-size: 15px;
+  width: 500px;
+}
+.not-relative {
+  border-color: #00D1AE;
+}
+.relative {
+  position: relative;
+  border-color: #3B3BFF;
+  left: 10px;
+  top: 10px;
+}
+
+.left-bar,
+.right-bar,
+.footer {
+  background: #00D1AE;
+  font-family: Arial;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.left-bar {
+  float: left;
+  height: 400px;
+  width: 300px;
+}
+.right-bar {
+  float: left;
+  height: 250px;
+  margin-left: 10px;
+  width: 300px;
+}
+.footer {
+  background: #17212E;
+  color: #fff;
+  clear: both;
+  width: 610px;
+}
