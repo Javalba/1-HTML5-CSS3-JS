@@ -1,0 +1,61 @@
+/* SASS Rules go here*/
+
+$variable-name: black;
+$font2: 'Indie Flower';
+body {
+  width: 100%;
+}
+
+.wrapper {
+  border: solid #00D1AE 5px;
+  margin: 100px auto 0;
+  width:  40%;
+}
+
+.card-container {
+  // background: #00D1AE;
+  font-family: $font2;
+  color: white;
+  background: $variable-name;
+  height:     280px;
+  margin:     20px auto;
+  width:      90%;
+}
+
+
+// /* SASS Rules go here*/
+// @import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+//
+// // Font Variables
+// $roboto-slab: 'Roboto Slab', serif;
+// $open-sans: 'Open Sans', sans-serif;
+//
+// $font-stack:    Helvetica, sans-serif;
+// $primary-color: blue;
+// $font2: 'Indie Flower';
+//
+// body {
+//   // font-family: 100% $font-stack;
+//   color: $primary-color;
+//
+//   font-family: $roboto-slab;
+//   font-weight: normal;
+// }
+//
+// .another-font{
+//   font-family: $font2;
+//   // font-family: 'Indie Flower';
+// }
+// .wrapper {
+//   border: solid #00D1AE 5px;
+//   margin: 100px auto 0;
+//   width:  40%;
+// }
+//
+// .card-container {
+//   // background: #00D1AE;
+//   background: $primary-color;
+//   height:     280px;
+//   margin:     20px auto;
+//   width:      90%;
+// }
