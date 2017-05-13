@@ -86,3 +86,9 @@ console.log("Words --> " + countingWords);
 // Make your program count the number of times the latin word 'et' appears
 var countTimes = (texts.match(/et/g)).length;
 console.log("'et' appears --> " + countTimes);
+
+
+/**
+ * return (false || []) --> te devuelve loscorchetes si es false.
+ * return (true || []) --> te devuelve true
+ */
