@@ -5,11 +5,136 @@ $bp-md: 500px;
 $bp-lg: 500px;
 $background: #f9f9f9;
 $font: 'WeblySleek UI Semibold';
-$border-color: #d4d4d4 1px solid;
+$border-color: #d1d1d1 1px solid;
+$xs: "(min-width: 0) and (max-width: 768px)";
+$sm: "(min-width: 768px)";
+$md: "(min-width: 992px)";
+$lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
+// Small devices (landscape phones, 0px to 768px)
+@media #{$xs} {
+  .subscribe-base {
+    display: none;
+  }
+
+  #icon-message-talk {
+    display: none;
+  }
+
+  .teaser-container-button-right {
+    display: none;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@media #{$sm} {
+  .subscribe-base {
+    padding: 25px 25px 25px 17.5%;
+    background-color: white;
+    border: $border-color;
+  }
+
+  .subscribe-welcome {
+    &-icon {
+      max-width: 30px;
+      vertical-align: middle;
+    }
+
+    &-sp1 {
+      font-weight: bold;
+      color: black;
+    }
+
+    &-sp2 {}
+
+    &-close {
+      float: right;
+      max-width: 16px;
+    }
+  }
+
+  .subscribe-box {
+    padding: 0 50px 0 160px;
+    height: 25px;
+
+    &-input {
+      color: #d4d4d4;
+      height: 80%;
+      border: $border-color;
+      border-radius: 3px;
+      margin-right: 10px;
+    }
+
+    &-button {
+      font-size: 10px;
+      color: white;
+      background: rgb(218,85,54);
+      border: rgb(214, 62, 27);
+      height: 110%;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+  }
+
+  .teaser-container {
+
+    &-content {
+      width: 85%;
+    }
+
+    &-button-right {
+      display: inline-block;
+      padding: 4px;
+      vertical-align: top;
+      margin-right: 5px;
+      float: right;
+
+      &-1{
+        color: black;
+        background-color: rgb(242, 242, 242);
+      }
+    }
+
+  }
+
+  #icon-message-talk {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    background-color: $background;
+    z-index: 1;
+    transition: all 0.25s;
+  }
+
+  #icon-message-talk:hover {
+    transform: scale(1.15, 1.15);
+    cursor: pointer;
+  }
+
+  /* ICON MESSAGE ANIMATION */
+  // #icon-message-talk:hover{
+  //
+  // }
+  // @-webkit-keyframes example {
+  //     from {background-color: red;}
+  //     to {background-color: yellow;}
+  // }
+
+}
+// Large devices (desktops, 992px and up)
+// @media #{$xs}  {
+//   .subscribe-base{
+//     display: none;
+//   }
+//  }
+// Extra large devices (large desktops, 1200px and up)
+// @media #{$xs}  {
+//   .subscribe-base{
+//     display: none;
+//   }
+//  }
 
 body {
   background: $background;
-  color: grey;
+  color: rgb(178,178,178);
   font-family: $font;
 }
 
@@ -17,11 +142,11 @@ main {
   margin-top: 175px;
 }
 
-p{
+p {
   margin: 5px;
 }
 
-h3{
+h3 {
   margin: 0;
   color: rgba(0,0,0,0.75);
 }
@@ -51,7 +176,7 @@ header {
     flex-grow: 4;
     height: 30px;
     background-image: url("images/search.png");
-    background-position: 7px 7px;
+    background-position: 5px;
     background-repeat: no-repeat;
     padding-left: 30px;
     border: $border-color;
@@ -91,6 +216,7 @@ header {
   &-topic:hover {
     background-color: #F9F9F9;
     color: rgb(30, 30, 30);
+    cursor: pointer;
   }
 
   &-arrows {
@@ -105,8 +231,12 @@ header {
     max-width: 16px;
   }
 }
-/**TEASERS*/
-
+/**
+ * SUBSCRIBE BOX
+ */
+/**
+ * TEASERS
+ */
 .teaser-base {
   margin-top: 75px;
 }
@@ -125,14 +255,14 @@ header {
     right: 0;
   }
 
-  &-right>span {
+  &-right > span {
     font-size: small;
   }
 }
-
 /**
 TODO NO PONE BORDER SUPERIOR
  */
+
 .teaser-container:first-child {
   border-top: $border-color;
 }
@@ -141,14 +271,19 @@ TODO NO PONE BORDER SUPERIOR
   border-right: $border-color;
   border-left: $border-color;
   border-bottom: $border-color;
+  padding: 15px 0 15px 0;
 
-  & > picture {
+  & > picture > img {
     margin-right: 20px;
+    vertical-align: top;
+    padding-top:6px;
+    max-width: 80px;
   }
 
   &-content {
     font-size: small;
     display: inline-block;
+    width: 79%;
 
     & > h3 {
       font-size: large;
@@ -174,5 +309,6 @@ TODO NO PONE BORDER SUPERIOR
   &-button:hover {
     background-color: rgb(232,232,232);
     color: rgb(30, 30, 30);
+    cursor: pointer;
   }
 }
