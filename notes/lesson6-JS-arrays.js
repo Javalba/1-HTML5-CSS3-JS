@@ -10,23 +10,6 @@ console.log(indices);
 // [0, 2, 4]
 
 
-/*¿¿¿¿PORQUE????*/
-var names = {
-  name1: ["javier"]
-};
-var copyName1=names;
-//var lastState = JSON.parse(JSON.stringify(rover)); //Store last state by value
-
-console.log("name1 -->",names.name1);
-console.log("copyName1-->",copyName1.name1);
-changeName("pepito");
-console.log("name1 -->",names.name1);
-console.log("copyName1-->",copyName1.name1);
-
-function changeName(name){names.name1 = name;}
-
-
-
 function doSomethingWithAFunction(name, functionToCall){
   functionToCall(name);
 }
