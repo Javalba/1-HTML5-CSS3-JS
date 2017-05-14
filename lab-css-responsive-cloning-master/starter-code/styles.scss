@@ -26,8 +26,13 @@ $lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
 }
 // Medium devices (tablets, 768px and up)
 @media #{$sm} {
+  main {
+    margin: 0 2.6%;
+  }
+
   .subscribe-base {
-    padding: 25px 25px 25px 17.5%;
+    margin-top: 140px;
+    padding: 25px 25px 25px 11%;
     background-color: white;
     border: $border-color;
   }
@@ -74,27 +79,6 @@ $lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
     }
   }
 
-  .teaser-container {
-
-    &-content {
-      width: 85%;
-    }
-
-    &-button-right {
-      display: inline-block;
-      padding: 4px;
-      vertical-align: top;
-      margin-right: 5px;
-      float: right;
-
-      &-1{
-        color: black;
-        background-color: rgb(242, 242, 242);
-      }
-    }
-
-  }
-
   #icon-message-talk {
     position: fixed;
     bottom: 12px;
@@ -108,16 +92,6 @@ $lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
     transform: scale(1.15, 1.15);
     cursor: pointer;
   }
-
-  /* ICON MESSAGE ANIMATION */
-  // #icon-message-talk:hover{
-  //
-  // }
-  // @-webkit-keyframes example {
-  //     from {background-color: red;}
-  //     to {background-color: yellow;}
-  // }
-
 }
 // Large devices (desktops, 992px and up)
 // @media #{$xs}  {
@@ -139,7 +113,8 @@ body {
 }
 
 main {
-  margin-top: 175px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 p {
@@ -231,14 +206,20 @@ header {
     max-width: 16px;
   }
 }
-/**
- * SUBSCRIBE BOX
+/*************************
+ ***      TEASERS      ***
+ *************************
  */
-/**
- * TEASERS
- */
+
 .teaser-base {
-  margin-top: 75px;
+  margin-top: 25px;
+}
+
+.teaser-base:first-child {
+  margin-top: 140px;
+  @media #{$sm} {
+    margin-top: 25px;
+  }
 }
 
 .teaser-header {
@@ -259,10 +240,13 @@ header {
     font-size: small;
   }
 }
+
+.subscribe-welcome-close {
+  max-width: 16px;
+}
 /**
 TODO NO PONE BORDER SUPERIOR
  */
-
 .teaser-container:first-child {
   border-top: $border-color;
 }
@@ -271,12 +255,12 @@ TODO NO PONE BORDER SUPERIOR
   border-right: $border-color;
   border-left: $border-color;
   border-bottom: $border-color;
-  padding: 15px 0 15px 0;
+  padding: 15px 0;
 
   & > picture > img {
     margin-right: 20px;
     vertical-align: top;
-    padding-top:6px;
+    padding-top: 6px;
     max-width: 80px;
   }
 
@@ -284,6 +268,9 @@ TODO NO PONE BORDER SUPERIOR
     font-size: small;
     display: inline-block;
     width: 79%;
+    @media #{$sm} {
+      width: 85%;
+    }
 
     & > h3 {
       font-size: large;
@@ -303,6 +290,20 @@ TODO NO PONE BORDER SUPERIOR
 
     & > img {
       max-width: 16px;
+    }
+  }
+  @media #{$sm} {
+    &-button-right {
+      display: inline-block;
+      padding: 4px;
+      vertical-align: top;
+      margin-right: 5px;
+      float: right;
+
+      &-1 {
+        color: black;
+        background-color: rgb(242, 242, 242);
+      }
     }
   }
 
