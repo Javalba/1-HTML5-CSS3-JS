@@ -1,10 +1,7 @@
 @import url("fonts/stylesheet.css");
-$bp-xs: 500px;
-$bp-sm: 500px;
-$bp-md: 500px;
-$bp-lg: 500px;
 $background: #f9f9f9;
 $font: 'WeblySleek UI Semibold';
+$font2: 'Segoe UI';
 $border-color: #d1d1d1 1px solid;
 $xs: "(min-width: 0) and (max-width: 768px)";
 $sm: "(min-width: 768px)";
@@ -23,6 +20,14 @@ $lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
   .teaser-container-button-right {
     display: none;
   }
+
+  .section-right {
+    float: right;
+  }
+
+  #trophy {
+    display: none;
+  }
 }
 // Medium devices (tablets, 768px and up)
 @media #{$sm} {
@@ -35,6 +40,13 @@ $lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
     padding: 25px 25px 25px 11%;
     background-color: white;
     border: $border-color;
+    position: relative;
+
+    &-close {
+      position: absolute;
+      top: 33%;
+      right: 3%;
+    }
   }
 
   .subscribe-welcome {
@@ -46,13 +58,6 @@ $lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
     &-sp1 {
       font-weight: bold;
       color: black;
-    }
-
-    &-sp2 {}
-
-    &-close {
-      float: right;
-      max-width: 16px;
     }
   }
 
@@ -79,6 +84,28 @@ $lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
     }
   }
 
+  .teaser-container-button:nth-child(4),
+  .teaser-container-button:nth-child(5) {
+    display: none;
+  }
+
+  #trophy {
+    display: inline-block;
+    padding: 4px;
+    vertical-align: top;
+    margin-right: 5px;
+    height: 18px;
+  }
+
+  #trophy>img {
+    max-width: 16px;
+  }
+
+  #trophy:nth-child(2) {
+  display: none;
+
+  }
+
   #icon-message-talk {
     position: fixed;
     bottom: 12px;
@@ -92,24 +119,106 @@ $lg: "(min-width: 1200px)"; /*MEDIA QUERIES BREAKPOINTS*/
     transform: scale(1.15, 1.15);
     cursor: pointer;
   }
+
+  .section-right {
+    display: none;
+  }
+}
+@media #{$md} {
+  .subscribe-base {
+    padding: 25px 10px 25px 3%;
+    text-align: center;
+  }
+
+  .subscribe-welcome {
+    display: inline-block;
+  }
+
+  .subscribe-box {
+    display: inline-block;
+    padding: 0 0 0 2%;
+
+    &-input{
+      width: 200px;
+      height: 25px;
+    }
+  }
+
+  .subscribe-welcome-close {
+    top: 42%;
+  }
 }
 // Large devices (desktops, 992px and up)
-// @media #{$xs}  {
+// @media #{$md}  {
 //   .subscribe-base{
 //     display: none;
 //   }
 //  }
 // Extra large devices (large desktops, 1200px and up)
-// @media #{$xs}  {
-//   .subscribe-base{
-//     display: none;
-//   }
-//  }
+@media #{$lg} {
+  .section-right {
+    display: block;
+    float: right;
+    width: 20%;
+  }
+
+  .section-left {
+    float: left;
+    width: 78%;
+    margin-right: 10px;
+  }
+
+  .kitty-container {
+    margin-top: 25px;
+    padding: 15px;
+    position: relative;
+  }
+
+  .kitty-content {
+    & > p {
+      font-size: 13px;
+    }
+
+    & > button {
+      background-image: url("images/slack-icon.png");
+      background-position: 5px;
+      background-repeat: no-repeat;
+      //padding-left: 30px;
+      background-color: rgb(218,85,54);
+      border: rgb(214, 62, 27);
+      color: white;
+      font-family: $font;
+      border-radius: 3px;
+      height: 25px;
+      padding: 1px 1px 1px 10px;
+      width: 95%;
+      margin-left: 7px;
+      font-size: 13px;
+    }
+  }
+
+  .kitty-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .chat-container {
+    margin-top: 25px;
+  }
+
+  .chat-person {
+    &-icon {
+      border-radius: 50%;
+      width: 40px;
+    }
+  }
+}
 
 body {
   background: $background;
   color: rgb(178,178,178);
-  font-family: $font;
+  font-family: $font2;
 }
 
 main {
@@ -133,6 +242,9 @@ header {
   width: 100%;
   background: white;
   border-bottom: $border-color;
+  max-width: 1200px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .top-menu {
@@ -206,11 +318,15 @@ header {
     max-width: 16px;
   }
 }
+
+.img-close {
+  float: right;
+  max-width: 10px;
+}
 /*************************
  ***      TEASERS      ***
  *************************
  */
-
 .teaser-base {
   margin-top: 25px;
 }
@@ -225,19 +341,22 @@ header {
 .teaser-header {
   position: relative;
   color: rgba(0, 0, 0, 0.75);
+  background-color: white;
+  // border: $border-color;
+  border-bottom: $border-color;
+  margin-left: 25px;
+  margin-right: 25px;
 
   &-left {
     font-size: large;
+    margin: 0;
+    padding: 20px 20px 20px 10px;
   }
 
   &-right {
     position: absolute;
-    top: 5px;
-    right: 0;
-  }
-
-  &-right > span {
-    font-size: small;
+    top: 20px;
+    right: 5px;
   }
 }
 
@@ -247,15 +366,16 @@ header {
 /**
 TODO NO PONE BORDER SUPERIOR
  */
-.teaser-container:first-child {
-  border-top: $border-color;
+
+.teaser-container:nth-child(2) {
+  border-top: none;
 }
 
 .teaser-container {
-  border-right: $border-color;
-  border-left: $border-color;
-  border-bottom: $border-color;
+  border-top: $border-color;
   padding: 15px 0;
+  background-color: white;
+  padding-left: 25px;
 
   & > picture > img {
     margin-right: 20px;
@@ -287,8 +407,10 @@ TODO NO PONE BORDER SUPERIOR
     padding: 4px;
     vertical-align: top;
     margin-right: 5px;
+    height: 18px;
 
     & > img {
+      padding-right: 2px;
       max-width: 16px;
     }
   }
@@ -312,4 +434,9 @@ TODO NO PONE BORDER SUPERIOR
     color: rgb(30, 30, 30);
     cursor: pointer;
   }
+}
+
+.box-container-style {
+  background-color: white;
+  border: $border-color;
 }
