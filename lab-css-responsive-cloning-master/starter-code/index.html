@@ -15,7 +15,7 @@
     <div class="top-menu">
       <img class="top-menu-icon" src="images/logo.png" alt="">
       <input class="top-menu-search" type="text" name="" placeholder="Discover your next favourite thing" value="">
-      <button class="top-menu-login" type="button" name="button">Login</button>
+      <button class="top-menu-login" type="button" name="button">... Login</button>
     </div>
     <div class="nav-bar">
       <ul>
@@ -59,7 +59,7 @@
         <div class="teaser-header">
           <h2 class="teaser-header-left">Popular this week</h2>
           <div class="teaser-header-right">
-            <img class="subscribe-welcome-close img-close" src="images/close.png" alt="">
+            <img class="img-close" src="images/close.png" alt="">
           </div>
         </div>
         <div class="teaser-container">
@@ -76,7 +76,7 @@
               <ul>
                 <li class="teaser-container-button"><img src="images/votes.png" alt=""><span>1460</span></li>
                 <li class="teaser-container-button"><img src="images/comments.png" alt=""><span>49</span></li>
-                <li id="trophy"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
+                <li class="trophy no"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
                 <li class="teaser-container-button"><img src="images/add-list.png" alt=""><span>SAVE</span></li>
                 <li class="teaser-container-button"><img src="images/external-link.png" alt=""></li>
                 <li class="teaser-container-button-right"><span>+ 2</span></li>
@@ -97,7 +97,7 @@
               <ul>
                 <li class="teaser-container-button"><img src="images/votes.png" alt=""><span>1465</span></li>
                 <li class="teaser-container-button"><img src="images/comments.png" alt=""><span>188</span></li>
-                <li id="trophy"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
+                <li class="trophy"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
                 <li class="teaser-container-button"><img src="images/add-list.png" alt=""><span>SAVE</span></li>
                 <li class="teaser-container-button"><img src="images/external-link.png" alt=""></li>
                 <li class="teaser-container-button-right"><span>+ 4</span></li>
@@ -118,7 +118,7 @@
               <ul>
                 <li class="teaser-container-button"><img src="images/votes.png" alt=""><span>1003</span></li>
                 <li class="teaser-container-button"><img src="images/comments.png" alt=""><span>80</span></li>
-                <li id="trophy"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
+                <li class="trophy no"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
                 <li class="teaser-container-button"><img src="images/add-list.png" alt=""><span>SAVE</span></li>
                 <li class="teaser-container-button"><img src="images/external-link.png" alt=""></li>
                 <li class="teaser-container-button-right"><span>+ 2</span></li>
@@ -126,6 +126,10 @@
               </ul>
             </div>
           </div>
+        </div>
+        <div class="teaser-base-footer">
+          <img src="images/arrow-down.png" alt="">
+          <span>SHOW MORE</span>
         </div>
       </div>
       <div class="teaser-base box-container-style">
@@ -146,7 +150,7 @@
               <ul>
                 <li class="teaser-container-button"><img src="images/votes.png" alt=""><span>82</span></li>
                 <li class="teaser-container-button"><img src="images/comments.png" alt=""><span>8</span></li>
-                <li id="trophy"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
+                <li class="trophy no"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
                 <li class="teaser-container-button"><img src="images/add-list.png" alt=""><span>SAVE</span></li>
                 <li class="teaser-container-button"><img src="images/external-link.png" alt=""></li>
                 <li class="teaser-container-button-right"><span>+ 3</span></li>
@@ -167,7 +171,7 @@
               <ul>
                 <li class="teaser-container-button"><img src="images/votes.png" alt=""><span>21</span></li>
                 <li class="teaser-container-button"><img src="images/comments.png" alt=""><span>9</span></li>
-                <li id="trophy"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
+                <li class="trophy no"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
                 <li class="teaser-container-button"><img src="images/add-list.png" alt=""><span>SAVE</span></li>
                 <li class="teaser-container-button"><img src="images/external-link.png" alt=""></li>
                 <li class="teaser-container-button-right"><span>+ 1</span></li>
@@ -188,7 +192,7 @@
               <ul>
                 <li class="teaser-container-button"><img src="images/votes.png" alt=""><span>23</span></li>
                 <li class="teaser-container-button"><img src="images/comments.png" alt=""><span>4</span></li>
-                <li id="trophy"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
+                <li class="trophy no"><img src="images/trophy.png" alt=""><span>#1 IN TECH</span></li>
                 <li class="teaser-container-button"><img src="images/add-list.png" alt=""><span>SAVE</span></li>
                 <li class="teaser-container-button"><img src="images/external-link.png" alt=""></li>
                 <li class="teaser-container-button-right"><span></span></li>
@@ -217,47 +221,54 @@
         <ul>
           <li class="chat-person">
             <img src="images/adam.jpg" alt="" class="chat-person-icon">
-            <span class="chat-person-name"></span>
-            <span class="chat-person-description"></span>
-            <button class="chat-person-remind">REMIND ME</button>
-            <div class="chat-content"></div>
+            <div class="chat-content">
+              <span class="chat-person-name">Adam Besvinick</span>
+              <span class="chat-person-description"> VC at Deep Fork Capital</span>
+              <button class="chat-person-remind">REMIND ME</button>
+            </div>
           </li>
           <li class="chat-person">
             <img src="images/susan.jpg" alt="" class="chat-person-icon">
-            <span class="chat-person-name"></span>
-            <span class="chat-person-description"></span>
-            <button class="chat-person-remind">REMIND ME</button>
-            <div class="chat-content"></div>
+            <div class="chat-content">
+              <span class="chat-person-name">Susan David</span>
+              <span class="chat-person-description">Author of Emotionally Guilty</span>
+              <button class="chat-person-remind">REMIND ME</button>
+            </div>
           </li>
           <li class="chat-person">
             <img src="images/avid.jpg" alt="" class="chat-person-icon">
-            <span class="chat-person-name"></span>
-            <span class="chat-person-description"></span>
-            <button class="chat-person-remind">REMIND ME</button>
-            <div class="chat-content"></div>
+            <div class="chat-content">
+              <span class="chat-person-name">Avid Larizadeh Duggan</span>
+              <span class="chat-person-description">General partner at GV</span>
+              <button class="chat-person-remind">REMIND ME</button>
+            </div>
           </li>
           <li class="chat-person">
             <img src="images/katerina.jpg" alt="" class="chat-person-icon">
-            <span class="chat-person-name"></span>
-            <span class="chat-person-description"></span>
-            <button class="chat-person-remind">REMIND ME</button>
-            <div class="chat-content"></div>
+            <div class="chat-content">
+              <span class="chat-person-name">Katerina Markov Schneider</span>
+              <span class="chat-person-description">Founder and CEO of Ritual</span>
+              <button class="chat-person-remind">REMIND ME</button>
+            </div>
           </li>
           <li class="chat-person">
             <img src="images/jocelyn.jpg" alt="" class="chat-person-icon">
-            <span class="chat-person-name"></span>
-            <span class="chat-person-description"></span>
-            <button class="chat-person-remind">REMIND ME</button>
-            <div class="chat-content"></div>
+            <div class="chat-content">
+              <span class="chat-person-name">Jocelyn Glei</span>
+              <span class="chat-person-description">Master of Productivity, founder and author...</span>
+              <button class="chat-person-remind">REMIND ME</button>
+            </div>
           </li>
         </ul>
-
-
-
-        <span>SEE MORE</span>
+        <div class="chat-container-footer">
+          <p>SEE MORE</p>
+        </div>
       </div>
-
     </section>
+
+    <!-- <div class="twitter-container">
+      <a class="twitter-timeline" data-width="250" data-height="500" href="https://twitter.com/ProductHunt">Tweets by ProductHunt</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div> -->
 
   </main>
 
