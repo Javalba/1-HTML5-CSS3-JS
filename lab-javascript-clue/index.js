@@ -112,7 +112,6 @@ rooms = [
 
 
 createMystery();
-tri(1,2,3);
 
 /**
  * Create a new mystery between weapons, rooms and characters.
@@ -120,11 +119,18 @@ tri(1,2,3);
  */
 function createMystery() {
   var mystery = [];
+
   mystery.push(weapons[Math.floor(Math.random() * (weapons.length))]); // [ 0 to weapons max length]
   mystery.push(rooms[Math.floor(Math.random() * (rooms.length))]);
   mystery.push(characters[Math.floor(Math.random() * (characters.length))]);
 
+  //mystery.push(killer,weapon,room);
+
   console.log(mystery);
   console.log("WEAPON: "+mystery[0].name+"\nROOM: "+mystery[1]+"\nSUSPECT: "+mystery[2].firstName);
-
 }
+
+/*Update: Try to separate in different functions. One to random_selector , pick_mystery y conole.log
+Abstraction, use one function with generic values instead use a function with specifc elements.
+Generic instead specific
+*/
