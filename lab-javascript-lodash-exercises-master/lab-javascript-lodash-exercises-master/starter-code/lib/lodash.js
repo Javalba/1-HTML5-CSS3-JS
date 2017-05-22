@@ -1,31 +1,8 @@
 /* Iteration 1 - The Office */
-
-// var depAlfa =     ["","","","","","","","","",""];
-// var depBeta =     ["","","","","","","","","",""];
-// var depCharlie =  ["","","","","","","","","",""];
-// var depDelta =    ["","","","","","","","","",""];
-// var depEco =      ["","","","","","","","","",""];
-
-// var employeeSatisfaction = function() {
-//
-//   //Create opinions
-//   // console.log(fillOpinions(depAlfa));
-//   // console.log(fillOpinions(depBeta));
-//   // console.log(fillOpinions(depCharlie));
-//   // console.log(fillOpinions(depDelta));
-//   // console.log(fillOpinions(depEco));
-//   //
-//   // console.log("Employee satisfaction: ");
-//   console.log(fillDepartaments(5, 10));
-// };
-
-/* Iteration 1 - The Office */
 var opinions = ["This is the best job ever", "Satisfied", "At least I get paid", "I m looking for another job", "I don\' t want to answer"];
 var departaments = [];
-// var employeeSatisfaction = fillDepartaments(5, 10);
 var departaments = fillDepartaments(5,10);
-console.log("DEPARTAMENTS -->", departaments);
-//console.log("5 Departaments with 10 ops each one", employeeSatisfaction);
+console.log("OFFICE -->", departaments);
 
 /**
  * fill a specefic quantity of departaments with a specefic opinions
@@ -34,9 +11,10 @@ console.log("DEPARTAMENTS -->", departaments);
  * @return  departaments
  */
 function fillDepartaments(qty, ops) {
-  departaments.push(_.times(qty, fillOpinions(10)));
+  departaments.push(_.times(qty, function(){return fillOpinions(ops);}));
   return departaments;
 }
+
 
 /**
  * Return department with 'ops' opinions
@@ -52,35 +30,61 @@ function fillOpinions (ops){
 }
 
 
-// var newArray = [];
-// newArray.push(_.times(10, function() {
-//   return _.sample([ "This is the best job ever",
-//                    "Satisfied",
-//                    "At least I get paid",
-//                    "I'm looking for another job",
-//                    "I don't want to answer"]);
-// }));
-// console.log("",newArray);
-/*ITERATION 2*/
+/* Iteration 2 - Harry Potter */
+var pairsOfBirthdays = _.chunk(birthdays, 2);
+// Adding extra birthdays to the array
+var moreBirthdays = ["Lily Evans", "30 January", "James Potter", "27 March",
+                     "Dudley Dursley", "30 June", "Tom Riddle", "31 December"];
+var allBirthdays = function () { return _.concat(pairsOfBirthdays, _.chunk(moreBirthdays, 2));};
+console.log(allBirthdays());
 
 
-/*ITERATION 3*/
-
+// The Password Problem
 var goodPsswd = "1234567890";
 var badPsswd = "1123456";
-var noRepeatChar = function (password) {
+//Unique Characters
+function noRepeatChar(password) {
 
-var result = _.filter(password, function(value, index, iterate){
-  return _.includes(iterate,value,index+1);
-});
+  var result = _.filter(password, function (value, index, iteratee) {
+    return _.includes(iteratee, value, index + 1);
+    });
 
-if(result.lenght<1){
-console.log("good");
+    if (result.length < 1) {
+      console.log("good password");
+    } else {
+      console.log("AUCH, bad password");
+    }
 }
-else{
-  console.log("bad");
-}
+
+noRepeatChar(goodPsswd);
+noRepeatChar(badPsswd);
+// Only digits
+var goodPsswd = "1234567890";
+var badPsswd = "12345678901234567890";
+var trimPassword = function (password) {
+  return _.dropRight(password.split(""), 10).join("");
 };
+trimPassword(badPsswd);
 
-console.log("GOOD-->",noRepeatChar(goodPsswd));
-console.log("BAD",noRepeatChar(badPsswd));
+
+// Abbey Road Studios
+// November is a good month
+var novemberArtists = function () {
+  return _.uniq(_.map(_.filter(abbeyRoadRecords, ["month", 11]), "artist"));
+};
+console.log(novemberArtists());
+// Artist who recorded the most times
+var bestArtist = function () {
+  return _.first(_.orderBy(_.groupBy(abbeyRoadRecords, "artist"), ['Array', 'length'], ['asc', 'desc']))[0].artist;
+};
+console.log(bestArtist());
+// The Beatles and Abbey Road
+var lastBeatlesSong = function () {
+  return _.orderBy(_.filter(abbeyRoadRecords, ["artist", "The Beatles"]), 'year', ['desc'])[0].year;
+};
+console.log(lastBeatlesSong());
+// Sixties Crazyness
+var sixtiesSong = function () {
+  return _.orderBy(_.filter(abbeyRoadRecords, ["year", 1969]), 'month', ['desc'])[0];
+};
+console.log(sixtiesSong().artist + " recorded " + sixtiesSong().song);
