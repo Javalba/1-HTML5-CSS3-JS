@@ -56,21 +56,21 @@
 // setTimeout(callbackFunction,1000);
 
 
-// var counter = 10;
-//
-// var callbackFunction = function (){
-//   console.log("(1)",counter);
-//
-//   if(counter > 1){
-//     setTimeout(callbackFunction,1000);
-//   }
-//   else{
-//     setTimeout(console.log("BOOM!!"),1000);
-//   }
-//     counter -= 1;
-// };
-//
-// setTimeout(callbackFunction,1000);
+var counter = 10;
+
+var callbackFunction = function (){
+  console.log("(1)",counter);
+
+  if(counter > 0){
+    setTimeout(callbackFunction,1000);
+  }
+  else{
+    setTimeout(console.log("BOOM!!"),1000);
+  }
+    counter -= 1;
+};
+
+setTimeout(callbackFunction,1000);
 //
 // console.log("***");
 //
@@ -114,20 +114,20 @@
 //
 // setTimeout(callbackFunction(10),1000);
 
-var callbackFunction = function (counter){
-
-  if(counter >= 1){
-    console.log("(1)",counter);
-        counter -= 1;
-    setTimeout(callbackFunction(counter),1000);
-  }
-  else{
-    setTimeout(console.log("BOOM!!"),1000);
-  }
-
-};
-
-setTimeout(callbackFunction(10),1000);
+// var callbackFunction = function (counter){
+//
+//   if(counter >= 1){
+//     console.log("(1)",counter);
+//         counter -= 1;
+//     setTimeout(callbackFunction(counter),1000);
+//   }
+//   else{
+//     setTimeout(console.log("BOOM!!"),1000);
+//   }
+//
+// };
+//
+// setTimeout(callbackFunction(10),1000);
 
 
 // var i = 10;
