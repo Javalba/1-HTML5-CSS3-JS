@@ -14,23 +14,31 @@ class Board {
     // window.addEventListener("keyup", activateKeyup);
   }
 
-  addSuccessHit(hits){
+  addSuccessHit(hits) {
     this.hits = this.hits + hits;
   }
 
-  addFailureHit(hits){
+  addFailureHit(hits) {
     this.fails = this.fails + hits;
   }
 
-  addPoints(points){
+  addPoints(points) {
     this.score = this.score + points;
   }
-  substractPoints(points){
+  substractPoints(points) {
     this.score = this.score - points;
   }
 
   // CONSTRUCT BOARD  & KEYS SUCCESS/FAIL
   buildSong() {
+    //
+    // let divScore = document.getElementsByClassName('score');
+    // divScore[0].innerHTML=`SCORE:`;
+
+    let btnRestart = document.getElementsByClassName('score-btn-restart');
+    btnRestart[0].style.display = 'none';
+
+
     for (let i = 0; i < this.rows; i++) {
       let currentDiv = document.getElementsByClassName('sheet');
       for (let j = 0; j < this.columns; j++) {
@@ -55,11 +63,16 @@ class Board {
   // }
 
   set setScore(points) {
-      this.score = points;   // validation could be checked here such as only allowing non numerical values
+    this.score = points; // validation could be checked here such as only allowing non numerical values
   }
 
   get getScore() {
-  return this.score; }
+    return this.score;
+  }
+
+  get getPercentage() {
+    return (this.hits / this.song.notes.length) * 100;
+  }
 
   update() {
     this.printSong();
@@ -80,9 +93,22 @@ class Board {
     }
   }
 
-  finish(){
+  finish() {
     let el = document.querySelector('.sheet');
-     //div.classList.contains("notes");
+    let hits = document.getElementsByClassName('score-hits');
+    let failure = document.getElementsByClassName('score-failure');
+    let percentage = document.getElementsByClassName('score-percentage');
+    let btnRestart = document.getElementsByClassName('score-btn-restart');
+    hits[0].innerHTML = `Hits: ${this.hits}/${this.song.notes.length}`;
+    failure[0].innerHTML = `Failures: ${this.fails}`;
+    percentage[0].innerHTML = `Percentage: ${this.getPercentage}`;
+    btnRestart[0].style.display = "block";
+    btnRestart[0].innerText = "Restart";
+    btnRestart[0].onclick = function() {
+      location.href = "../index.html";
+    };
+
+    //div.classList.contains("notes");
     //el.style.display = 'none';
     // alert("Finish");
   }
@@ -93,8 +119,13 @@ class Board {
         case 80: // p pause
           if (this.intervalId) {
             this.stop();
+            let el = document.getElementsByClassName('score-pause');
+            el[0].innerHTML = "PAUSE";
+            //$('*').off('keyup keydown keypress');
           } else {
             this.start();
+            let el = document.getElementsByClassName('score-pause');
+            el[0].innerHTML = "";
           }
           break;
         case 65: // a
@@ -157,7 +188,8 @@ class Board {
       this.song.positionArray++;
     }
     if (this.song.tempo[this.song.tempo.length - 1] === this.rows + 1) {
-      this.finish();}
+      this.finish();
+    }
   }
 
 
@@ -186,7 +218,8 @@ class Board {
       this.substractPoints(1);
       this.addFailureHit(1);
       let scoreDiv = document.getElementById("score-counter");
-      scoreDiv.innerHTML = this.getScore  ;
+      scoreDiv.innerHTML = this.getScore;
+
     }
   }
 
@@ -212,7 +245,7 @@ const cols = 8;
 const keys = Array.from(document.querySelectorAll('.key')); // key's array
 const val = 0;
 const songs = ["cdefgab2", "ggag2bggagcbgggecbaffecdc"];
-
+//cdefgab2
 
 const keyboard = new Keyboard(keys);
 let song = new Song(songs[0]);
