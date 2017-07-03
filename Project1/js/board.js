@@ -10,8 +10,6 @@ class Board {
 
     //Piano keys eventsA
     this.assignControlsToKeys();
-    // window.addEventListener('keydown', activeKeydown);
-    // window.addEventListener("keyup", activateKeyup);
   }
 
   addSuccessHit(hits) {
@@ -31,18 +29,12 @@ class Board {
 
   // CONSTRUCT BOARD  & KEYS SUCCESS/FAIL
   buildSong() {
-    //
-    // let divScore = document.getElementsByClassName('score');
-    // divScore[0].innerHTML=`SCORE:`;
 
     let btnRestart = document.getElementsByClassName('score-btn-restart');
     btnRestart[0].style.display = 'none';
-
-
     for (let i = 0; i < this.rows; i++) {
       let currentDiv = document.getElementsByClassName('sheet');
       for (let j = 0; j < this.columns; j++) {
-
         let newDiv = document.createElement("div");
         newDiv.classList.add("cell");
         newDiv.setAttribute('data-row', i);
@@ -58,12 +50,8 @@ class Board {
     points[0].addEventListener('transitionend', this.removeTransPoints);
   }
 
-  // get score() {
-  //   return this.score;
-  // }
-
   set setScore(points) {
-    this.score = points; // validation could be checked here such as only allowing non numerical values
+    this.score = points;
   }
 
   get getScore() {
@@ -76,13 +64,11 @@ class Board {
 
   update() {
     this.printSong();
-    // console.log('hello');
-    //console.log(this.song);
   }
 
   start() {
     if (!this.intervalId) {
-      this.intervalId = setInterval(this.update.bind(this), 400);
+      this.intervalId = setInterval(this.update.bind(this), 650);
     }
   }
 
@@ -107,10 +93,6 @@ class Board {
     btnRestart[0].onclick = function() {
       location.href = "../index.html";
     };
-
-    //div.classList.contains("notes");
-    //el.style.display = 'none';
-    // alert("Finish");
   }
 
   assignControlsToKeys() {
@@ -136,27 +118,21 @@ class Board {
           break;
         case 68: // d
           this.checkNote(2);
-
           break;
         case 70: //f
           this.checkNote(3);
-
           break;
         case 71: //g
           this.checkNote(4);
-
           break;
         case 72: //h
           this.checkNote(5);
-
           break;
         case 74: //j
           this.checkNote(6);
-
           break;
         case 75: //k
           this.checkNote(7);
-
           break;
         default:
       }
@@ -169,16 +145,10 @@ class Board {
    * this.song.notes --> notes of song
    * @return {[type]}
    */
-
   printSong() {
-    let element = document.querySelector(`[data-row="${this.song.tempo[this.song.positionArray]}"][data-col="${this.song.notes[this.song.positionArray]}"]`);
-    if (element) {
-      element.classList.add("notes");
-    }
-
     for (let i = this.song.positionArray; i > 0; i--) {
       let prev = document.querySelector(`[data-row="${this.song.tempo[i-1]-1}"][data-col="${this.song.notes[i-1]}"]`);
-      if (prev) prev.classList.remove("notes");
+      if (prev &&  this.song.notes[i-1] !== this.song.notes[i]) prev.classList.remove("notes");
       let next = document.querySelector(`[data-row="${this.song.tempo[i-1]}"][data-col="${this.song.notes[i-1]}"]`);
       if (next) next.classList.add('notes');
       this.song.tempo[i - 1]++;
@@ -186,6 +156,10 @@ class Board {
     if (this.song.notes.length > this.song.positionArray) {
       this.song.tempo[this.song.positionArray]++;
       this.song.positionArray++;
+    }
+    let element = document.querySelector(`[data-row="${this.song.tempo[this.song.positionArray]}"][data-col="${this.song.notes[this.song.positionArray]}"]`);
+    if (element) {
+      element.classList.add("notes");
     }
     if (this.song.tempo[this.song.tempo.length - 1] === this.rows + 1) {
       this.finish();
@@ -210,7 +184,6 @@ class Board {
     }
     //FAILURE
     else {
-
       let pointsDiv = document.getElementsByClassName('container-points');
       pointsDiv[0].innerHTML = "-1";
       //pointsDiv[0].classList.remove('points-failure');
@@ -244,11 +217,21 @@ const rows = 8;
 const cols = 8;
 const keys = Array.from(document.querySelectorAll('.key')); // key's array
 const val = 0;
-const songs = ["cdefgab2", "ggag2bggagcbgggecbaffecdc"];
-//cdefgab2
+let song="";
+const songs = ["ggag2bggagcbgggecbaffecdc","cdefgab2"];
+let urlParameter = window.location.search;
+let songSelected = urlParameter.split('=')[1];
+
+if(songSelected==="z"){
+  songSelected = urlParameter.split('=')[2];
+  song = new Song(songSelected);
+}
+else{
+  songSelected = parseInt(songSelected);
+  song = new Song(songs[songSelected]);
+}
 
 const keyboard = new Keyboard(keys);
-let song = new Song(songs[0]);
 const game = new Board(keyboard, song, rows, cols);
 game.buildSong();
 game.start();
