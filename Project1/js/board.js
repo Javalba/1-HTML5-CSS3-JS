@@ -59,7 +59,8 @@ class Board {
   }
 
   get getPercentage() {
-    return (this.hits / this.song.notes.length) * 100;
+    /*return (this.hits / this.song.notes.length) * 100;*/
+    return (this.score/((this.song.notes.length)*5)*100);
   }
 
   update() {
@@ -87,16 +88,21 @@ class Board {
     let btnRestart = document.getElementsByClassName('score-btn-restart');
     hits[0].innerHTML = `Hits: ${this.hits}/${this.song.notes.length}`;
     failure[0].innerHTML = `Failures: ${this.fails}`;
-    percentage[0].innerHTML = `Percentage: ${this.getPercentage}`;
+    percentage[0].innerHTML = `Percentage: ${this.getPercentage.toFixed(1)}%`;
     btnRestart[0].style.display = "block";
     btnRestart[0].innerText = "Restart";
     btnRestart[0].onclick = function() {
       location.href = "../index.html";
     };
+    window.removeEventListener('keydown',this.keyboardListener,true);
+    
   }
 
   assignControlsToKeys() {
-    $('body').on('keydown', function(e) {
+    window.addEventListener('keydown', this.keyboardListener.bind(this));
+  }
+
+  keyboardListener(e) {
       switch (e.keyCode) {
         case 80: // p pause
           if (this.intervalId) {
@@ -136,8 +142,7 @@ class Board {
           break;
         default:
       }
-    }.bind(this));
-  }
+    }
 
   /**
    * this.song.positionArray --> index of array
@@ -218,7 +223,7 @@ const cols = 8;
 const keys = Array.from(document.querySelectorAll('.key')); // key's array
 const val = 0;
 let song="";
-const songs = ["ggag2bggagcbgggecbaffecdc","cdefgab2"];
+const songs = ["ggag2bggag2bggge2baffecdc","eeeeeeegcdefffffeeeeeddedgeeeeeeegcdefffffeeeeggfdc"];
 let urlParameter = window.location.search;
 let songSelected = urlParameter.split('=')[1];
 
